@@ -1,7 +1,8 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { children_Props } from "@/types";
 import React from "react";
 import AppSidebar from "./_components/app_sidebar";
+import Navbar from "./_components/navbar";
 
 const Layout = ({ children }: children_Props) => {
   return (
@@ -9,8 +10,8 @@ const Layout = ({ children }: children_Props) => {
       {" "}
       <SidebarProvider>
         <AppSidebar />
-        <main>
-          <SidebarTrigger />
+        <main className="w-full">
+          <Navbar />
           {children}
         </main>
       </SidebarProvider>

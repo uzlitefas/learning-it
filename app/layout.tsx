@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Barlow_Condensed, Ubuntu } from "next/font/google";
 import "./globals.css";
 import { children_Props } from "@/types";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const ubuntu = Ubuntu({
   variable: "--font-Ubuntu",
@@ -22,11 +23,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: children_Props) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${barlowCondensed.variable} ${ubuntu.variable} antialiased`}
       >
-        {children}
+        {" "}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
