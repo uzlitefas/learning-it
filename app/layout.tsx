@@ -3,6 +3,7 @@ import { Barlow_Condensed, Ubuntu } from "next/font/google";
 import "./globals.css";
 import { children_Props } from "@/types";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import ClerkThemeProvider from "@/components/providers/clerk-theme-provider";
 
 const ubuntu = Ubuntu({
   variable: "--font-Ubuntu",
@@ -34,7 +35,8 @@ export default function RootLayout({ children }: children_Props) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          {" "}
+          <ClerkThemeProvider>{children}</ClerkThemeProvider>
         </ThemeProvider>
       </body>
     </html>
